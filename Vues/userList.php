@@ -29,7 +29,10 @@
                 <td class="left">Test</td>
                 <td class="left">Test</td>
                 <td class="left">Test</td>
-                <td class="center">X | V</td>
+                <td class="center">
+                    <img src="Img/delete.png" width="25px" height="25px" alt="supprimer">
+                    <img src="Img/modifier.png" width="25px" height="25px" alt="modifier">
+                </td>
             </tr>
             <?php
             // Petit foreach des familles qui fait les 4 <td></td>
