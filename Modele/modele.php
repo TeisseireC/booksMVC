@@ -58,6 +58,17 @@
         $sth->bindParam(":email", $email);
         $sth->execute();
     }
+    function modifyUser($emailOrigin, $emailNew,$firstname, $lastname, $password){
+        $pdo = connectPDO();
+        $sql = 'Update users set email=:emailNew, firstname=:firstname, lastname=:lastname, password=:password where email = :emailOrigin';
+        $sth = $pdo->prepare($sql);
+        $sth->bindParam(":emailOrigin", $emailOrigin);
+        $sth->bindParam(":emailNew", $emailNew);
+        $sth->bindParam(":firstname", $firstname);
+        $sth->bindParam(":lastname", $lastname);
+        $sth->bindParam(":password", $password);
+        $sth->execute();
+    }
     # END Users Functions
 
     # START Books Functions
