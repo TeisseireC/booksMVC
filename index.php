@@ -52,7 +52,17 @@
             ControleurModifyUser($_GET['mail']);
             ControleurListeUtilisateurs();
         }elseif ($_GET['action'] == 'addBook'){
-            ControleurAddBook();
+            if($_GET['type'] == 'add'){
+                if(isset($_POST['title']) && isset($_POST['author']) && isset($_POST['genre'])){
+                    ControleurValidationAddBook($_POST['title'], $_POST['author'], $_POST['genre']);
+                }else{
+                    ControleurAddBook();
+                }
+            }else{
+                ControleurAddBook();
+            }
+        }else{
+            ControleurListeLivre();
         }
     }else{
         ControleurListeLivre();

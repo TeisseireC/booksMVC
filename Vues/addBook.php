@@ -13,15 +13,17 @@
         include 'assets/header.php';
     ?>
     <body>
-    <section class="section-list">
-        <form action="index.php?action=addBook" method="post">
-            <label>Titre
-                <input type="text" name="title">
-            </label>
-            <label>Auteur
-                <input type="text" name="author">
-            </label>
-            <label for="genre">Genre
+        <form class="formulaire" action="index.php?action=addBook&type=add" method="post">
+            <div>
+                <label for="title">Titre</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div>
+                <label for="author">Auteur</label>
+                <input type="text" id="author" name="author">
+            </div>
+            <div>
+                <label for="genre">Genre</label>
                 <select name="genre" id="genre">
                     <option value="1">Roman</option>
                     <option value="2">Cuisine</option>
@@ -31,10 +33,22 @@
                     <option value="6">Nouvelle</option>
                     <option value="7">Conte</option>
                 </select>
-            </label>
-            <button type="submit">Ajouter</button>
+            </div>
+            <div>
+                <button type="submit">Ajouter</button>
+            </div>
         </form>
-    </section>
+        <div class="surprise">
+            <?php
+            if(isset($bookAlreadyExist)){
+                if($bookAlreadyExist == true){
+                    echo '<span>Ce livre existe déjà</span>';
+                }else{
+                    echo '<span>Le livre à bien été ajouté</span>';
+                }
+            }
+            ?>
+        </div>
     </body>
     <?php
         include 'assets/footer.php';

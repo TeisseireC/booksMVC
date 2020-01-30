@@ -112,8 +112,6 @@
     }
 
     function createBook($title, $author, $userMail, $genre){
-        $idGenre = getGenre($genre);
-
         $pdo = connectPDO();
         $sql = 'Insert into books (title, author, owner, genre)
                 values
@@ -122,7 +120,7 @@
         $sth->bindParam(":title", $title);
         $sth->bindParam(":author", $author);
         $sth->bindParam(":userMail", $userMail);
-        $sth->bindParam(":idGenre", $idGenre['id']);
+        $sth->bindParam(":idGenre", $genre);
         $sth->execute();
     }
 
@@ -146,7 +144,7 @@
 
     function getGenre($genre){
         $pdo = connectPDO();
-        $sql = "Select descrition From genres Where descrition = :genre";
+        $sql = "Select description From genres Where description = :genre";
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":genre", $genre);
         $sth->execute();

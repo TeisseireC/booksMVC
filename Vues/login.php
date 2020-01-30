@@ -25,7 +25,7 @@
         </div>
         <div>
             <button type="submit">Connection</button>
-        </div>
+    </div>
     </form>
 
     <div class="surprise">
