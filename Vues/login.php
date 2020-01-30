@@ -14,24 +14,31 @@
     ?>
 <body>
 
-<?php
-    if(isset($loginNotValid)){
-        if($loginNotValid == true){
-            echo "<div> 
-                    Les identifiants sont incorrects
-              </div>";
+    <form class="formulaire" action="index.php?action=login&type=validation" method="post">
+        <div>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Connection</button>
+        </div>
+    </form>
+
+    <div class="surprise">
+        <?php
+        if(isset($loginNotValid)){
+            if($loginNotValid == true){
+                echo "<span> 
+                            Les identifiants sont incorrects
+                      </span>";
+            }
         }
-    }
-?>
-<form action="index.php?action=login&type=validation" method="post">
-    <label>E-mail
-        <input type="email" name="email">
-    </label>
-    <label>Mot de passe
-        <input type="password" name="password">
-    </label>
-    <button type="submit">Connection</button>
-</form>
+        ?>
+    </div>
 </body>
 </body>
     <?php
