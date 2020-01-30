@@ -131,6 +131,17 @@
         $sth->bindParam(":title", $title);
         $sth->execute();
     }
+
+    function modifyBook($titleNew,$authorNew,$genreNew,$titleOrigin){
+        $pdo = connectPDO();
+        $sql = 'Update users set title=:titleNew, author=:authorNew, genre=:genreNew where title = :titleOrigin';
+        $sth = $pdo->prepare($sql);
+        $sth->bindParam(":titleOrigin", $titleOrigin);
+        $sth->bindParam(":titleNew", $titleNew);
+        $sth->bindParam(":authorNew", $authorNew);
+        $sth->bindParam(":genreNew", $genreNew);
+        $sth->execute();
+    }
     # END Books Functions
 
     # START Genres functions

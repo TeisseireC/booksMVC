@@ -5,7 +5,7 @@
     if(session_status() == PHP_SESSION_NONE){
         session_start();
     }
-    //On vérifiras l'user dans la session dans les vues et affichage en fonction
+
     //Verification des routes
     if(isset($_GET['action'])){
         if($_GET['action'] == 'login'){
@@ -53,16 +53,22 @@
             ControleurListeUtilisateurs();
         }elseif ($_GET['action'] == 'addBook'){
             if($_GET['type'] == 'add'){
+                ControleurAddBook();
+            }elseif($_GET['type'] == 'validation'){
                 if(isset($_POST['title']) && isset($_POST['author']) && isset($_POST['genre'])){
                     ControleurValidationAddBook($_POST['title'], $_POST['author'], $_POST['genre']);
                 }else{
                     ControleurAddBook();
                 }
             }else{
-                ControleurAddBook();
+                ControleurListeLivre();
             }
-        }else{
-            ControleurListeLivre();
+        }elseif($_GET['action'] == 'modifyBook'){
+            if($_GET['type'] == 'modify'){
+
+            }elseif($_GET['type'] == 'validation'){
+
+            }
         }
     }else{
         ControleurListeLivre();

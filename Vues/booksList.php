@@ -16,7 +16,12 @@
     <body>
         <section class="section-list">
             <h1>Liste des livres et de leurs propriétaire</h1>
-            <a href="index.php?action=addBook"><button>Ajouter un livre</button></a>
+            <?php
+                if(isset($_SESSION['user'])){
+                   echo '<a href="index.php?action=addBook&type=add"><button>Ajouter un livre</button></a>';
+                }
+            ?>
+
 
             <table>
                 <tr>
@@ -42,8 +47,8 @@
                                 if(isset($_SESSION['user'])){
                                     if($_SESSION['user']['type'] == 2 || $_SESSION['user']['email'] == $row['email']){
                                         echo '<td class="center">';
-                                        echo '<a href="index.php?action=deleteBook&mail='.$row["email"].'"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
-                                        echo '<a href="index.php?action=modifyBook&mail='.$row["email"].'"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
+                                        echo '<a href="index.php?action=deleteBook&title='.$row["title"].'&type=modify"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
+                                        echo '<a href="index.php?action=modifyBook&title='.$row["title"].'&type=validation"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
                                         echo '</td>';
                                     }
                                 }

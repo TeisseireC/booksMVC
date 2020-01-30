@@ -58,6 +58,7 @@
     function ControleurAddBook(){
         include 'Vues/addBook.php';
     }
+
     function ControleurValidationAddBook($title, $author, $genre){
         $result = getBook($title);
         if(isset($result['title'])){
@@ -68,7 +69,15 @@
             $bookAlreadyExist = false;
             include 'Vues/addBook.php';
         }
+    }
 
+    function ControleurModifyBook(){
+        include 'Vues/modifyBook.php';
+    }
+
+    function ControleurValidationModifyBook($title, $author, $genre){
+            modifyBook($title,$author,$genre);
+            include 'Vues/addBook.php';
     }
 
     function ControleurDisconnect(){

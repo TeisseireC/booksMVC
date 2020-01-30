@@ -13,7 +13,7 @@
         include 'assets/header.php';
     ?>
     <body>
-        <form class="formulaire" action="index.php?action=addBook&type=add" method="post">
+        <form class="formulaire" action="index.php?action=addBook&type=validation" method="post">
             <div>
                 <label for="title">Titre</label>
                 <input type="text" id="title" name="title">
