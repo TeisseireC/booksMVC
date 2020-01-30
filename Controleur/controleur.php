@@ -9,10 +9,11 @@
         include 'Vues/login.php';
     }
 
-    function ControleurValidationLogin($email){
+    function ControleurValidationLogin($email,$password){
         //Appelle de la méthode dans le modèle pour vérifier l'user dans la BD
         //retour à la page de livres
-        ModeleValidationLogin();
+        $rows = getUser($email);
+        echo $rows;
         include 'Vues/booksList.php';
     }
 
