@@ -44,6 +44,8 @@
                     ControleurListeLivre();
                 }
             }
+        }elseif ($_GET['action'] == 'users'){
+            ControleurListeUtilisateurs();
         }
     }else{
         ControleurListeLivre();

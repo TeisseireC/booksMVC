@@ -1,6 +1,6 @@
 <header class="navbar-header">
     <div class="navbar-left">
-        <a href="index.php?action=" >List of users</a>
+        <a href="index.php?action=users" >List of users</a>
         <a href="index.php" >List of books</a>
     </div>
 

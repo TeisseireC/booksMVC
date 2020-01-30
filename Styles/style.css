@@ -1,3 +1,4 @@
+/* START GENERAL */
 html{
     height: 100%;
 }
@@ -12,6 +13,7 @@ html, body{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+/* END GENERAL */
 
 .container{
     display: flex;
@@ -86,7 +88,8 @@ footer{
 }
 /* END DISCONNECT */
 
-.section-books{
+/* START LIST OF BOOKS && LIST OF USER*/
+.section-list{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -96,23 +99,29 @@ footer{
     text-align: center;
     border: 1px solid black;
 }
-.section-books table{
+.section-list table{
     margin: 20px 0 20px 0;
     min-width: 50%;
     background-color: black;
     border: medium solid black;
     border-collapse: collapse;
 }
-.section-books th{
+.section-list th{
     border: 1px solid white;
     background-color: black;
     color: white;
 }
-.section-books td{
+.section-list td{
     border: 1px solid black;
-    text-align: left;
     background-color: white;
 }
-.section-books th,.section-books td{
+.section-list th,.section-list td{
     width: 23%;
 }
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+/* END LIST OF BOOKS */

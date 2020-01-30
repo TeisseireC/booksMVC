@@ -5,6 +5,9 @@
         include 'Vues/booksList.php';
     }
 
+    function ControleurListeUtilisateurs(){
+        include 'Vues/userList.php';
+    }
     function ControleurLogin(){
         include 'Vues/login.php';
     }
