@@ -8,13 +8,44 @@
     <link rel="stylesheet" type="text/css" href="Styles/style.css">
     <title>List of Books</title>
 </head>
-<?php
-    include 'assets/header.php';
-?>
-<body>
 
-</body>
-<?php
-    include 'assets/footer.php';
-?>
+<div class="container">
+    <?php
+        include 'assets/header.php';
+    ?>
+    <body>
+        <section class="section-books">
+            <h1>Liste des livres et de leurs propriétaire</h1>
+
+            <table>
+                <tr>
+                    <th>Titre</th>
+                    <th>Autheur</th>
+                    <th>Genre</th>
+                    <th>Propriétaire</th>
+                    <?php
+                        // SI connecté et membre OU SI admin <th>Action</th>
+                    ?>
+                </tr>
+
+                <tr>
+                    <td>Test</td>
+                    <td>Test</td>
+                    <td>Test</td>
+                    <td>Test</td>
+                </tr>
+                <?php
+                    // Petit foreach des familles qui fait les 4 premiers <td></td>
+
+                    // Si c'est le proprio du livre  OU l'admin alors ajout du <td>Button pour supprimer</td>
+                    // Sinon ajout de <td></td> (case vide)
+                ?>
+
+            </table>
+        </section>
+    </body>
+    <?php
+        include 'assets/footer.php';
+    ?>
+</div>
 </html>

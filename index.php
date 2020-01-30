@@ -36,12 +36,13 @@
         }elseif($_GET['action'] == 'disconnect') {
             if($_GET['type'] == 'disconnect') {
                 ControleurDisconnect();
-            }elseif ($_GET['type'] == 'validation'){
-                if(isset($_POST['Oui'])){
+            }elseif ($_GET['type'] == 'validation') {
+                if (isset($_POST['Yes'])) {
                     session_destroy();
+                    ControleurListeLivre();
+                } else {
+                    ControleurListeLivre();
                 }
-            }else{
-                ControleurListeLivre();
             }
         }
     }else{
