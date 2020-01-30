@@ -23,7 +23,7 @@
 
     function getUser($email){
         $pdo = connectPDO();
-        $sql = 'Select email, firstname, lastname, usergroup From users where email = ":email"';
+        $sql = 'Select email, firstname, lastname, usergroup From users where email = :email';
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":email", $email);
         $sth->execute();
@@ -34,7 +34,7 @@
         $pdo = connectPDO();
         $sql = 'Insert into users (email, firstname, lastname, usergroup, password)
                 values
-                (":email",":firstname",":lastname",1,":password")';
+                (:email,:firstname,:lastname,1,:password)';
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":email", $email);
         $sth->bindParam(":firstname", $firstname);
@@ -45,7 +45,7 @@
 
     function removeUser($email){
         $pdo = connectPDO();
-        $sql = 'Delete From users where email = ":email"';
+        $sql = 'Delete From users where email = :email';
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":email", $email);
         $sth->execute();
@@ -85,7 +85,7 @@
                 FROM books B, genres G, users U
                 WHERE B.genre = G.id 
                 AND B.owner = U.email
-                AND B.title = ":title"';
+                AND B.title = :title';
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":title", $title);
         $sth->execute();
@@ -98,7 +98,7 @@
         $pdo = connectPDO();
         $sql = 'Insert into books (title, author, owner, genre)
                 values
-                (":title",":author",":userMail",:idGenre)';
+                (:title,:author,:userMail,:idGenre)';
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":title", $title);
         $sth->bindParam(":author", $author);
@@ -109,7 +109,7 @@
 
     function removeBook($title){
         $pdo = connectPDO();
-        $sql = 'Delete From books where title = ":title"';
+        $sql = 'Delete From books where title = :title';
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":title", $title);
         $sth->execute();

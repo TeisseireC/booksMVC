@@ -16,8 +16,12 @@
         <h1>Êtes-vous sur de vouloir vous déconnecter ?</h1>
 
         <form action="index.php?action=disconnect&type=validation" method="post">
-                <p>Oui<input type="radio" value="Oui" name="Yes"></p>
-                <p>Non<input type="radio" value="Non" name="No"></p>
+            <input type="radio" id="Yes" name="validation" value="Yes" checked>
+            <label for="Yes">Oui</label>
+
+            <input type="radio" id="No" name="validation" value="No">
+            <label for="No">Non</label>
+
             <input type="submit" value="Valider">
         </form>
     </section>
