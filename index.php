@@ -33,6 +33,16 @@
             }else{
                 ControleurListeLivre();
             }
+        }elseif($_GET['action'] == 'disconnect') {
+            if($_GET['type'] == 'disconnect') {
+                ControleurDisconnect();
+            }elseif ($_GET['type'] == 'validation'){
+                if(isset($_POST['Oui'])){
+                    session_destroy();
+                }
+            }else{
+                ControleurListeLivre();
+            }
         }
     }else{
         ControleurListeLivre();

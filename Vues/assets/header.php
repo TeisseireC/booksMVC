@@ -1,13 +1,13 @@
 <header class="navbar-header">
     <div class="navbar-left">
-        <a href="../userList.php" >List of users</a>
-        <a href="../booksList.php" >List of books</a>
+        <a href="index.php?action=" >List of users</a>
+        <a href="index.php" >List of books</a>
     </div>
 
     <div class="navbar-right">
-        <a href="../login.php" >Login</a>
-        <a href="../register.php" >Register</a>
-        <a href="../disconnect.php" >Disconnect</a>
+        <a href="index.php?action=login&type=login" >Login</a>
+        <a href="index.php?action=register&type=register" >Register</a>
+        <a href="index.php?action=disconnect&type=disconnect" >Disconnect</a>
     </div>
 
 </header>
