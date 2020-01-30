@@ -34,9 +34,23 @@
         include 'Vues/register.php';
     }
 
-    function ControleurValidationRegister($email,$firstname,$lastname,$password){
-        createUser($email,$firstname,$lastname,$password);
-        include 'Vues/booksList.php';
+    function ControleurValidationRegister($email,$firstname,$lastname,$password,$password2){
+        if($password == $password2){
+            $passwordHash = password_hash($password,PASSWORD_DEFAULT);
+            $result = getUser($email);
+            if(isset($result['email'])){
+                $compteDejaExistant = true;
+                include 'Vues/register.php';
+            }else{
+                createUser($email,$firstname,$lastname,$passwordHash);
+                $compteCreer = true;
+                include 'Vues/register.php';
+            }
+        }else{
+            $compteCreer = false;
+            include 'Vues/register.php';
+        }
+
     }
 
     function ControleurDisconnect(){
