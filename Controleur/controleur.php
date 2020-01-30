@@ -13,8 +13,13 @@
         //Appelle de la méthode dans le modèle pour vérifier l'user dans la BD
         //retour à la page de livres
         $rows = getUser($email);
-        echo $rows;
-        include 'Vues/booksList.php';
+        var_dump($rows['email']);
+        if($email == $rows['email'] && password_verify($password,$rows['password'])){
+
+            include 'Vues/booksList.php';
+        }else{
+            include
+        }
     }
 
     function ControleurRegister(){
