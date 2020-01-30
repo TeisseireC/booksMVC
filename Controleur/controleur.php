@@ -12,13 +12,16 @@
     function ControleurValidationLogin($email,$password){
         //Appelle de la méthode dans le modèle pour vérifier l'user dans la BD
         //retour à la page de livres
+        //temporaire( "dimitri.gottin@mail.com", password_hash("abcd", PASSWORD_DEFAULT));
         $rows = getUser($email);
-        var_dump($rows['email']);
         if($email == $rows['email'] && password_verify($password,$rows['password'])){
-
+            $_SESSION['user']['email'] = $rows['email'];
+            $_SESSION['user']['password'] = $rows['password'];
+            $_SESSION['user']['type'] = $rows['usergroup'];
             include 'Vues/booksList.php';
         }else{
-            include
+            $loginNotValid = true;
+            include 'Vues/login.php';
         }
     }
 
