@@ -45,10 +45,14 @@
             }
         }elseif ($_GET['action'] == 'users'){
             ControleurListeUtilisateurs();
-        }elseif ($_GET['action'] == 'delete' and isset($_GET['mail'])){
+        }elseif ($_GET['action'] == 'deleteUser' and isset($_GET['mail'])){
             ControleurDeleteUser($_GET['mail']);
-        }elseif ($_GET['action'] == 'modify' and isset($_GET['mail'])){
+            ControleurListeUtilisateurs();
+        }elseif ($_GET['action'] == 'modifyUser' and isset($_GET['mail'])){
             ControleurModifyUser($_GET['mail']);
+            ControleurListeUtilisateurs();
+        }elseif ($_GET['action'] == 'addBook'){
+            ControleurAddBook();
         }
     }else{
         ControleurListeLivre();

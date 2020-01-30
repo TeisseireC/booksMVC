@@ -98,6 +98,7 @@ footer{
     min-height: 50vh;
     text-align: center;
     border: 1px solid black;
+    margin: 25px 0 25px 0;
 }
 .section-list table{
     margin: 20px 0 20px 0;

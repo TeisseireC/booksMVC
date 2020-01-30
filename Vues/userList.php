@@ -33,8 +33,8 @@
                         echo '<td class="left">'.$row["firstname"].'</td>';
                         echo '<td class="left">'.$row["email"].'</td>';
                         echo '<td class="center">';
-                        echo '<a href="index.php?action="delete"&mail="'.$row["email"].'"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
-                        echo '<a href="index.php?action="modify"&mail="'.$row["email"].'"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
+                        echo '<a href="index.php?action=deleteUser&mail='.$row["email"].'"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
+                        echo '<a href="index.php?action=modifyUser&mail='.$row["email"].'"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
                         echo '</td>';
                     echo '</tr>';
                 }
