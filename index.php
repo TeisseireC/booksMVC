@@ -24,8 +24,8 @@
             if($_GET['type'] == 'register'){
                 ControleurRegister();
             }elseif ($_GET['type'] == 'validation'){
-                if(isset($_POST['email']) && isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['password'])){
-                    ControleurValidationRegister($_POST['email'],$_POST['lastname'],$_POST['firstname'],$_POST['password']);
+                if(isset($_POST['email']) && isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['password']) && isset($_POST['password'])){
+                    ControleurValidationRegister($_POST['email'],$_POST['lastname'],$_POST['firstname'],$_POST['password'],$_POST['password2']);
                 }else{
                     ControleurListeLivre();
                 }

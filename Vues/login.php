@@ -5,8 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="Styles/style.css">
     <title>Document</title>
 </head>
+<div class="container">
+    <?php
+    include 'assets/header.php';
+    ?>
 <body>
 
 <?php
@@ -27,8 +32,10 @@
     </label>
     <button type="submit">Connection</button>
 </form>
-
-
-
 </body>
+</body>
+    <?php
+    include 'assets/footer.php';
+    ?>
+</div>
 </html>
