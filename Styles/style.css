@@ -125,3 +125,48 @@ footer{
     text-align: center;
 }
 /* END LIST OF BOOKS */
+.surprise{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.surprise span{
+    color: black;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.formulaire{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width:50%;
+}
+
+.formulaire div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.formulaire div label{
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
+}
+
+.formulaire div input{
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.formulaire div button{
+    height: 30px;
+    background-color: black;
+    color : white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
