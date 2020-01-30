@@ -16,6 +16,7 @@
     <body>
         <section class="section-list">
             <h1>Liste des livres et de leurs propriétaire</h1>
+            <a href="index.php?action=addBook"><button>Ajouter un livre</button></a>
 
             <table>
                 <tr>
@@ -24,21 +25,29 @@
                     <th>Genre</th>
                     <th>Propriétaire</th>
                     <?php
-                        // SI connecté et membre OU SI admin <th>Action</th>
+                        if(isset($_SESSION['user']['email'])){
+                            echo '<th>Action</th>';
+                        }
                     ?>
                 </tr>
 
-                <tr>
-                    <td class="left">Test</td>
-                    <td class="left">Test</td>
-                    <td class="left">Test</td>
-                    <td class="left">Test</td>
-                </tr>
                 <?php
-                    // Petit foreach des familles qui fait les 4 premiers <td class="left"></td>
-
-                    // Si c'est le proprio du livre  OU l'admin alors ajout du <td class="center">Button pour supprimer</td>
-                    // Sinon ajout de <td class="center"></td> (case vide)
+                    if(isset($rows)){
+                        foreach($rows as $row){
+                            echo '<tr>';
+                                echo '<td class="left">'.$row['title'].'</td>';
+                                echo '<td class="left">'.$row['author'].'</td>';
+                                echo '<td class="left">'.$row['description'].'</td>';
+                                echo '<td class="left">'.$row['email'].'</td>';
+                                if($_SESSION['user']['type'] == 2 || $_SESSION['user']['email'] == $row['email']){
+                                    echo '<td class="center">';
+                                    echo '<a href="index.php?action=deleteBook&mail='.$row["email"].'"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
+                                    echo '<a href="index.php?action=modifyBook&mail='.$row["email"].'"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
+                                    echo '</td>';
+                                }
+                            echo '</tr>';
+                        }
+                    }
                 ?>
 
             </table>

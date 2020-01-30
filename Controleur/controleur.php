@@ -2,6 +2,7 @@
     // Controleur
 
     function ControleurListeLivre(){
+        $rows = getAllBooks();
         include 'Vues/booksList.php';
     }
 
@@ -34,7 +35,9 @@
     function ControleurRegister(){
         include 'Vues/register.php';
     }
-
+    function ControleurAddBook(){
+        include 'Vues/addBook.php';
+    }
     function ControleurValidationRegister($email,$firstname,$lastname,$password,$password2){
         if($password == $password2){
             $passwordHash = password_hash($password,PASSWORD_DEFAULT);
@@ -60,6 +63,7 @@
 
     function ControleurDeleteUser($mail){
         removeUser($mail);
+
     }
     function ControleurModifyUser($mailOrigin, $mailNew, $firstname, $lastname,$password){
         modifyUser($mailOrigin, $mailNew,  $firstname, $lastname,$password);
