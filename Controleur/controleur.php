@@ -6,6 +6,7 @@
     }
 
     function ControleurListeUtilisateurs(){
+        $rows = getAllUsers();
         include 'Vues/userList.php';
     }
     function ControleurLogin(){
@@ -41,5 +42,12 @@
 
     function ControleurDisconnect(){
         include 'Vues/disconnect.php';
+    }
+
+    function ControleurDeleteUser($mail){
+        removeUser($mail);
+    }
+    function ControleurModifyUser($mailOrigin, $mailNew, $firstname, $lastname,$password){
+        modifyUser($mailOrigin, $mailNew,  $firstname, $lastname,$password);
     }
 ?>
