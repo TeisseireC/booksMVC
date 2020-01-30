@@ -19,6 +19,8 @@
         $rows = getUser($email);
         if($email == $rows['email'] && password_verify($password,$rows['password'])){
             $_SESSION['user']['email'] = $rows['email'];
+            $_SESSION['user']['firstname'] = $rows['firstname'];
+            $_SESSION['user']['lastname'] = $rows['lastname'];
             $_SESSION['user']['password'] = $rows['password'];
             $_SESSION['user']['type'] = $rows['usergroup'];
             include 'Vues/booksList.php';
@@ -32,9 +34,8 @@
         include 'Vues/register.php';
     }
 
-    function ControleurValidationRegister(){
-        //Appelle de la méthode dans le modèle pour remplir l'user dans la BD si valide
-        //retour à la page de livres
+    function ControleurValidationRegister($email,$firstname,$lastname,$password){
+        createUser($email,$firstname,$lastname,$password);
         include 'Vues/booksList.php';
     }
 
