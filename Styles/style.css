@@ -1,18 +1,29 @@
+html{
+    height: 100%;
+}
+body{
+    min-height: 100%;
+}
 html, body{
     margin : 0;
     padding : 0;
 }
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
+/* START HEADER */
 .navbar-header{
     position: relative;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     height: 100px;
     line-height: 100px;
     background-color: black;
     width: 100%;
 }
-
 .navbar-left{
     flex-grow: 2;
     margin-left: 20px;
@@ -20,5 +31,38 @@ html, body{
 .navbar-right{
     margin-right: 20px;
 }
+.navbar-left a, .navbar-right a{
+    text-decoration: none;
+    margin: 0 20px 0 20px;
+    color: white;
+    font-size: 20px;
+}
+/* END HEADER */
 
+/* START FOOTER */
+footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+/* END FOOTER */
 
+/* START DISCONNECT */
+.section-disconnect{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50vh;
+    text-align: center;
+    border: 1px solid black;
+}
+/* END DISCONNECT */

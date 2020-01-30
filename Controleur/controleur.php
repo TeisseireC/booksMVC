@@ -25,4 +25,8 @@
         //retour à la page de livres
         include 'Vues/booksList.php';
     }
+
+    function ControleurDisconnect(){
+        include 'Vues/disconnect.php';
+    }
 ?>
