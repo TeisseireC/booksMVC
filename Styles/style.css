@@ -1,1 +1,24 @@
-/* Feuille de style */
+html, body{
+    margin : 0;
+    padding : 0;
+}
+
+.navbar-header{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    line-height: 100px;
+    background-color: black;
+    width: 100%;
+}
+
+.navbar-left{
+    flex-grow: 2;
+    margin-left: 20px;
+}
+.navbar-right{
+    margin-right: 20px;
+}
+
+
