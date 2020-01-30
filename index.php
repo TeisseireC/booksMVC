@@ -12,8 +12,12 @@
         if($_GET['action'] == 'login'){
             if($_GET['type'] == 'login'){
                 ControleurLogin();
-            }elseif($_GET['type'] == 'validation'){
-                ControleurValidationLogin();
+            }elseif($_GET['type'] == 'validation') {
+                if (isset($_POST['email']) && isset($_POST['password'])){
+                    ControleurValidationLogin($_POST['email']);
+                }else{
+                    ControleurListeLivre();
+                }
             }else{
                 ControleurListeLivre();
             }
@@ -21,7 +25,11 @@
             if($_GET['type'] == 'register'){
                 ControleurRegister();
             }elseif ($_GET['type'] == 'validation'){
-                ControleurValidationRegister();
+                if(isset($_POST['email']) && isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['password'])){
+                    ControleurValidationRegister();
+                }else{
+                    ControleurListeLivre();
+                }
             }else{
                 ControleurListeLivre();
             }
