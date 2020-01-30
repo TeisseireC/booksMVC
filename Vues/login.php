@@ -9,6 +9,15 @@
 </head>
 <body>
 
+<?php
+    if(isset($loginNotValid)){
+        if($loginNotValid == true){
+            echo "<div> 
+                    Les identifiants sont incorrects
+              </div>";
+        }
+    }
+?>
 <form action="index.php?action=login&type=validation" method="post">
     <label>E-mail
         <input type="email" name="email">
@@ -18,6 +27,8 @@
     </label>
     <button type="submit">Connection</button>
 </form>
+
+
 
 </body>
 </html>

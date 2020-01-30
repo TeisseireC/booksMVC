@@ -23,12 +23,20 @@
 
     function getUser($email){
         $pdo = connectPDO();
-        $sql = 'Select email, firstname, lastname, usergroup From users where email = :email';
+        $sql = 'Select * From users where email = :email';
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":email", $email);
         $sth->execute();
         return $row = $sth->fetch();
     }
+    /*function temporaire($email, $password){
+        $pdo = connectPDO();
+        $sql = 'UPDATE users SET password = :password WHERE email = :email';
+        $sth = $pdo->prepare($sql);
+        $sth->bindParam(":password", $password);
+        $sth->bindParam(":email", $email);
+        $sth->execute();
+    }*/
 
     function createUser($email, $firstname, $lastname, $password){
         $pdo = connectPDO();

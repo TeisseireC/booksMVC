@@ -39,6 +39,7 @@
             }elseif ($_GET['type'] == 'validation'){
                 if(isset($_POST['Oui'])){
                     session_destroy();
+                    ControleurListeLivre();
                 }
             }else{
                 ControleurListeLivre();
