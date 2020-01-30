@@ -6,7 +6,6 @@
         session_start();
     }
     //On vérifiras l'user dans la session dans les vues et affichage en fonction
-
     //Verification des routes
     if(isset($_GET['action'])){
         if($_GET['action'] == 'login'){
@@ -26,7 +25,7 @@
                 ControleurRegister();
             }elseif ($_GET['type'] == 'validation'){
                 if(isset($_POST['email']) && isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['password'])){
-                    ControleurValidationRegister();
+                    ControleurValidationRegister($_POST['email'],$_POST['lastname'],$_POST['firstname'],$_POST['password']);
                 }else{
                     ControleurListeLivre();
                 }
@@ -37,9 +36,9 @@
             if($_GET['type'] == 'disconnect') {
                 ControleurDisconnect();
             }elseif ($_GET['type'] == 'validation') {
-                if (isset($_POST['Yes'])) {
+                if (isset($_POST['validation']) && $_POST['validation'] == 'Yes') {
                     session_destroy();
-                    ControleurListeLivre();
+                    header('Location: index.php');
                 } else {
                     ControleurListeLivre();
                 }
