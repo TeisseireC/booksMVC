@@ -36,9 +36,6 @@
     function ControleurRegister(){
         include 'Vues/register.php';
     }
-    function ControleurAddBook(){
-        include 'Vues/addBook.php';
-    }
     function ControleurValidationRegister($email,$firstname,$lastname,$password,$password2){
         if($password == $password2){
             $passwordHash = password_hash($password,PASSWORD_DEFAULT);
@@ -54,6 +51,22 @@
         }else{
             $compteCreer = false;
             include 'Vues/register.php';
+        }
+
+    }
+
+    function ControleurAddBook(){
+        include 'Vues/addBook.php';
+    }
+    function ControleurValidationAddBook($title, $author, $genre){
+        $result = getBook($title);
+        if(isset($result['title'])){
+            $bookAlreadyExist = true;
+            include 'Vues/addBook.php';
+        }else{
+            createBook($title,$author,$_SESSION['user']['email'],$genre);
+            $bookAlreadyExist = false;
+            include 'Vues/addBook.php';
         }
 
     }
