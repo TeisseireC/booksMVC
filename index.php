@@ -14,7 +14,7 @@
                 ControleurLogin();
             }elseif($_GET['type'] == 'validation') {
                 if (isset($_POST['email']) && isset($_POST['password'])){
-                    ControleurValidationLogin($_POST['email']);
+                    ControleurValidationLogin($_POST['email'],$_POST['password']);
                 }else{
                     ControleurListeLivre();
                 }
