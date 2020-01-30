@@ -1,3 +1,4 @@
+/* START GENERAL */
 html{
     height: 100%;
 }
@@ -11,6 +12,16 @@ html, body{
 * {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+/* END GENERAL */
+
+.container{
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
 /* START HEADER */
@@ -41,10 +52,8 @@ html, body{
 
 /* START FOOTER */
 footer{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    position: relative;
+    width: 100%;
     height: 50px;
     background-color: black;
     color: white;
@@ -54,15 +63,65 @@ footer{
 
 /* START DISCONNECT */
 .section-disconnect{
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 50%;
     height: 50vh;
     text-align: center;
     border: 1px solid black;
+    overflow-y: auto;
+}
+.section-disconnect input{
+    margin-top: 20px;
+}
+.section-disconnect label{
+    font-size: 25px;
+}
+.section-disconnect .radio-button{
+    width: 25px;
+    height: 25px;
+}
+.section-disconnect #submit{
+    margin-top: 40px;
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
 }
 /* END DISCONNECT */
+
+/* START LIST OF BOOKS && LIST OF USER*/
+.section-list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    min-height: 50vh;
+    text-align: center;
+    border: 1px solid black;
+}
+.section-list table{
+    margin: 20px 0 20px 0;
+    min-width: 50%;
+    background-color: black;
+    border: medium solid black;
+    border-collapse: collapse;
+}
+.section-list th{
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+}
+.section-list td{
+    border: 1px solid black;
+    background-color: white;
+}
+.section-list th,.section-list td{
+    width: 23%;
+}
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+/* END LIST OF BOOKS */
