@@ -39,11 +39,13 @@
                                 echo '<td class="left">'.$row['author'].'</td>';
                                 echo '<td class="left">'.$row['description'].'</td>';
                                 echo '<td class="left">'.$row['email'].'</td>';
-                                if($_SESSION['user']['type'] == 2 || $_SESSION['user']['email'] == $row['email']){
-                                    echo '<td class="center">';
-                                    echo '<a href="index.php?action=deleteBook&mail='.$row["email"].'"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
-                                    echo '<a href="index.php?action=modifyBook&mail='.$row["email"].'"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
-                                    echo '</td>';
+                                if(isset($_SESSION['user'])){
+                                    if($_SESSION['user']['type'] == 2 || $_SESSION['user']['email'] == $row['email']){
+                                        echo '<td class="center">';
+                                        echo '<a href="index.php?action=deleteBook&mail='.$row["email"].'"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
+                                        echo '<a href="index.php?action=modifyBook&mail='.$row["email"].'"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
+                                        echo '</td>';
+                                    }
                                 }
                             echo '</tr>';
                         }

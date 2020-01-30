@@ -25,6 +25,7 @@
             $_SESSION['user']['lastname'] = $rows['lastname'];
             $_SESSION['user']['password'] = $rows['password'];
             $_SESSION['user']['type'] = $rows['usergroup'];
+            $rows = getAllBooks();
             include 'Vues/booksList.php';
         }else{
             $loginNotValid = true;
