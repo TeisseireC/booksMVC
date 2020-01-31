@@ -44,13 +44,37 @@
                 }
             }
         }elseif ($_GET['action'] == 'users'){
-            ControleurListeUtilisateurs();
+            if(isset($_SESSION['user']['type'])){
+                if($_SESSION['user']['type'] == 2){
+                    ControleurListeUtilisateurs();
+                }else{
+                    ControleurListeLivre();
+                }
+            }else{
+                ControleurListeLivre();
+            }
         }elseif ($_GET['action'] == 'deleteUser' and isset($_GET['mail'])){
-            ControleurDeleteUser($_GET['mail']);
-            ControleurListeUtilisateurs();
+            if(isset($_SESSION['user']['type'])){
+                if($_SESSION['user']['type'] == 2){
+                    ControleurDeleteUser($_GET['mail']);
+                    ControleurListeUtilisateurs();
+                }else{
+                    ControleurListeLivre();
+                }
+            }else{
+                ControleurListeLivre();
+            }
         }elseif ($_GET['action'] == 'modifyUser' and isset($_GET['mail'])){
-            ControleurModifyUser($_GET['mail']);
-            ControleurListeUtilisateurs();
+            if(isset($_SESSION['user']['type'])){
+                if($_SESSION['user']['type'] == 2){
+                    ControleurModifyUser($_GET['mail']);
+                    ControleurListeUtilisateurs();
+                }else{
+                    ControleurListeLivre();
+                }
+            }else{
+                ControleurListeLivre();
+            }
         }elseif ($_GET['action'] == 'addBook'){
             if($_GET['type'] == 'add'){
                 ControleurAddBook();
@@ -63,21 +87,39 @@
             }else{
                 ControleurListeLivre();
             }
-        }elseif($_GET['action'] == 'modifyBook'){
-            if($_GET['type'] == 'modify' && isset($_GET['title'])){
-                ControleurModifyBook($_GET['title']);
-            }elseif($_GET['type'] == 'validation'){
-                if(isset($_POST['title']) && isset($_POST['author']) && isset($_POST['genre']) && isset($_POST['titleOrigin'])){
-                    ControleurValidationModifyBook($_POST['title'],$_POST['author'],$_POST['genre'],$_POST['titleOrigin']);
+        }elseif($_GET['action'] == 'modifyBook' && isset($_GET['title'])){
+            $rows = ControleurVerifyUserBook($_GET['title']);
+            if(isset($rows)){
+                if($_SESSION['user']['email'] == $rows || $_SESSION['user']['type'] == 2){
+                    if($_GET['type'] == 'modify'){
+                        ControleurModifyBook($_GET['title']);
+                    }elseif($_GET['type'] == 'validation'){
+                        if(isset($_POST['title']) && isset($_POST['author']) && isset($_POST['genre']) && isset($_POST['titleOrigin'])){
+                            ControleurValidationModifyBook($_POST['title'],$_POST['author'],$_POST['genre'],$_POST['titleOrigin']);
+                        }else{
+                            ControleurListeLivre();
+                        }
+                    }else{
+                        ControleurListeLivre();
+                    }
                 }else{
                     ControleurListeLivre();
                 }
             }else{
-
+                ControleurListeLivre();
             }
         }elseif ($_GET['action'] == 'deleteBook' && isset($_GET['title'])){
-            ControleurDeleteBook($_GET['title']);
-            ControleurListeLivre();
+            $rows = ControleurVerifyUserBook($_GET['title']);
+            if (isset($rows)) {
+                if ($_SESSION['user']['type'] == 2 || $_SESSION['user']['email'] == $rows) {
+                    ControleurDeleteBook($_GET['title']);
+                    ControleurListeLivre();
+                }else{
+                    ControleurListeLivre();
+                }
+            }else{
+                ControleurListeLivre();
+            }
         }else{
             ControleurListeLivre();
         }
