@@ -122,10 +122,13 @@
             $rows = getUser($mailNew);
             if ($mailOrigin == $mailNew || !isset($rows['email'])) {
                     modifyUser($mailOrigin, $mailNew, $firstname, $lastname, password_hash($password, PASSWORD_DEFAULT));
-                    $userModif = true;
+                    $rows = getUser($mailNew);
+                    $userModify = true;
                     include 'Vues/modifyUser.php';
             }else {
-                if ($rows['email'] != $mailOrigin) {
+                $tabTemps = $rows;
+                $rows = getUser($mailOrigin);
+                if ($tabTemps['email'] != $mailOrigin) {
                     $mailInvalide = true;
                     include 'Vues/modifyUser.php';
                 }
