@@ -70,7 +70,10 @@
             include 'Vues/addBook.php';
         }
     }
-
+    function ControleurVerifyUserBook($title){
+        $rows = getBook($title);
+        return $rows['email'];
+    }
     function ControleurModifyBook($title){
         $rows = getBook($title);
         if($rows['title'] == $title){
