@@ -14,7 +14,7 @@
     ?>
     <body>
         <form class="formulaire" action="index.php?action=modifyBook&type=validation" method="post">
-            <input type="hidden" name="titleOrigin" value="">
+            <input type="hidden" name="titleOrigin"  >
             <div>
                 <label for="title">Titre</label>
                 <input type="text" id="title" name="title">

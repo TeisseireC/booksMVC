@@ -71,8 +71,14 @@
         }
     }
 
-    function ControleurModifyBook(){
-        include 'Vues/modifyBook.php';
+    function ControleurModifyBook($title){
+        $rows = getBook($title);
+        if($rows['title'] == $title){
+            include 'Vues/modifyBook.php';
+        }else{
+            include 'Vues/booksList.php';
+        }
+
     }
 
     function ControleurValidationModifyBook($title, $author, $genre, $titleOrigin){

@@ -64,8 +64,8 @@
                 ControleurListeLivre();
             }
         }elseif($_GET['action'] == 'modifyBook'){
-            if($_GET['type'] == 'modify'){
-                ControleurModifyBook();
+            if($_GET['type'] == 'modify' && isset($_GET['title'])){
+                ControleurModifyBook($_GET['title']);
             }elseif($_GET['type'] == 'validation'){
                 if(isset($_POST['title']) && isset($_POST['author']) && isset($_POST['genre']) && isset($_POST['titleOrigin'])){
                     ControleurValidationModifyBook($_POST['title'],$_POST['author'],$_POST['genre'],$_POST['titleOrigin']);
@@ -78,8 +78,6 @@
         }elseif ($_GET['action'] == 'deleteBook' && isset($_GET['title'])){
             ControleurDeleteBook($_GET['title']);
             ControleurListeLivre();
-        }elseif ($_GET['action'] == 'modifyBook' && isset($_GET['titleOld'])){
-
         }else{
             ControleurListeLivre();
         }
