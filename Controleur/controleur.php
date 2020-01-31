@@ -75,9 +75,9 @@
         include 'Vues/modifyBook.php';
     }
 
-    function ControleurValidationModifyBook($title, $author, $genre){
-            modifyBook($title,$author,$genre);
-            include 'Vues/addBook.php';
+    function ControleurValidationModifyBook($title, $author, $genre, $titleOrigin){
+            modifyBook($title,$author,$genre,$titleOrigin);
+            include 'Vues/modifyBook.php';
     }
     function ControleurDeleteBook($title){
         removeBook($title);
