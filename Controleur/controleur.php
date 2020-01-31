@@ -52,7 +52,6 @@
             $compteCreer = false;
             include 'Vues/register.php';
         }
-
     }
 
     function ControleurAddBook(){
@@ -105,9 +104,35 @@
 
     function ControleurDeleteUser($mail){
         removeUser($mail);
-
     }
-    function ControleurModifyUser($mailOrigin, $mailNew, $firstname, $lastname,$password){
-        modifyUser($mailOrigin, $mailNew,  $firstname, $lastname,$password);
+
+    function ControleurModifyUser($mail){
+        $rows = getUser($mail);
+        if($rows['email'] == $mail){
+            include 'Vues/modifyUser.php';
+        }else{
+            include 'Vues/userList.php';
+        }
+    }
+
+    function ControleurValidationModifyUser($mailOrigin, $mailNew, $firstname, $lastname,$password,$password2){
+        $rows = getUser($mailNew);
+        if($password == $password2) {
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            if ($mailOrigin == $mailNew || !isset($rows['email'])) {
+                    modifyUser($mailOrigin, $mailNew, $firstname, $lastname, password_hash($password, PASSWORD_DEFAULT));
+                    $rows = getUser($mailNew);
+                    $userModif = true;
+                    include 'Vues/modifyUser.php';
+            }else {
+                if ($rows['email'] != $mailOrigin) {
+                    $mailInvalide = true;
+                    include 'Vues/modifyUser.php';
+                }
+            }
+        }else {
+            $passwordInvalide = false;
+            include 'Vues/modifyUser.php';
+        }
     }
 ?>

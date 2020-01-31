@@ -44,9 +44,21 @@
     </form>
     <div class="surprise">
         <?php
-        if(isset($bookModif)) {
-            if ($bookModif == true) {
-                echo '<span>Le livre à été modifié</span>';
+        if(isset($userModify)) {
+            if ($userModify == true) {
+                echo '<span>Le compte à été modifié</span>';
+            }else{
+                echo '<span>La modification du compte à pas été effectué</span>';
+            }
+        }
+        if(isset($passwordInvalide)){
+            if($passwordInvalide == true){
+                echo '<span>Mot de passe invalide</span>';
+            }
+        }
+        if(isset($mailInvalide)){
+            if($mailInvalide == true){
+                echo '<span>Mail deja utilise</span>';
             }
         }
         ?>

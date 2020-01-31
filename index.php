@@ -64,11 +64,16 @@
             }else{
                 ControleurListeLivre();
             }
-        }elseif ($_GET['action'] == 'modifyUser' and isset($_GET['mail'])){
+        }elseif ($_GET['action'] == 'modifyUser'){
             if(isset($_SESSION['user']['type'])){
                 if($_SESSION['user']['type'] == 2){
-                    ControleurModifyUser($_GET['mail']);
-                    ControleurListeUtilisateurs();
+                    if($_GET['type'] == 'modify'){
+                        ControleurModifyUser($_GET['mail']);
+                    }elseif ($_GET['type'] == 'validation'){
+                        ControleurValidationModifyUser($_POST['emailOld'],$_POST['email'],$_POST['firstname'],$_POST['lastname'],$_POST['password'],$_POST['password2']);
+                    }else{
+                        ControleurListeUtilisateurs();
+                    }
                 }else{
                     ControleurListeLivre();
                 }
