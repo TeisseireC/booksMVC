@@ -69,6 +69,12 @@
             }elseif($_GET['type'] == 'validation'){
 
             }
+        }elseif ($_GET['action'] == 'deleteBook' && isset($_GET['title'])){
+            ControleurDeleteBook($_GET['title']);
+        }elseif ($_GET['action'] == 'modifyBook' && isset($_GET['titleOld'])){
+
+        }else{
+            ControleurListeLivre();
         }
     }else{
         ControleurListeLivre();

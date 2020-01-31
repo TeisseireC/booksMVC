@@ -79,6 +79,10 @@
             modifyBook($title,$author,$genre);
             include 'Vues/addBook.php';
     }
+    function ControleurDeleteBook($title){
+        removeBook($title);
+        include 'Vues/booksList.php';
+    }
 
     function ControleurDisconnect(){
         include 'Vues/disconnect.php';

@@ -84,20 +84,6 @@
         return $rows = $sth->fetchAll();
     }
 
-    function getAllBooksByOwner($userMail){
-        $pdo = connectPDO();
-        $sql = "SELECT B.title, B.author, G.description, U.firstname, U.lastname, U.email
-                FROM books B, genres G, users U
-                WHERE B.genre = G.id 
-                AND B.owner = U.email
-                AND B.owner = :owner
-                ORDER BY B.id";
-        $sth = $pdo->prepare($sql);
-        $sth->bindParam(":owner", $userMail);
-        $sth->execute();
-        return $rows = $sth->fetchAll();
-    }
-
     function getBook($title){
         $pdo = connectPDO();
         $sql = 'SELECT B.title, B.author, G.description, U.firstname, U.lastname, U.email
