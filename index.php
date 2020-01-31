@@ -71,6 +71,7 @@
             }
         }elseif ($_GET['action'] == 'deleteBook' && isset($_GET['title'])){
             ControleurDeleteBook($_GET['title']);
+            ControleurListeLivre();
         }elseif ($_GET['action'] == 'modifyBook' && isset($_GET['titleOld'])){
 
         }else{
