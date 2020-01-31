@@ -14,15 +14,17 @@
     ?>
     <body>
         <form class="formulaire" action="index.php?action=modifyBook&type=validation" method="post">
-            <input type="hidden" name="titleOrigin"  >
-            <div>
-                <label for="title">Titre</label>
-                <input type="text" id="title" name="title">
-            </div>
-            <div>
-                <label for="author">Auteur</label>
-                <input type="text" id="author" name="author">
-            </div>
+            <?php
+                echo '<input type="hidden" name="titleOrigin" value="'.$rows['title'].'">';
+                echo '<div>';
+                echo    '<label for="title">Titre</label>';
+                echo     '<input type="text" id="title" name="title" value="'.$rows['title'].'" required>';
+                echo    '</div>';
+                echo    '<div>';
+                echo        '<label for="author">Auteur</label>';
+                echo        '<input type="text" id="author" name="author" value="'.$rows['author'].'" required>';
+                echo    '</div>';
+            ?>
             <div>
                 <label for="genre">Genre</label>
                 <select name="genre" id="genre">
@@ -36,16 +38,14 @@
                 </select>
             </div>
             <div>
-                <button type="submit">Ajouter</button>
+                <button type="submit">Modifier</button>
             </div>
         </form>
         <div class="surprise">
             <?php
-            if(isset($bookAlreadyExist)){
-                if($bookAlreadyExist == true){
-                    echo '<span>Ce livre existe déjà</span>';
-                }else{
-                    echo '<span>Le livre à bien été ajouté</span>';
+            if(isset($bookModif)) {
+                if ($bookModif == true) {
+                    echo '<span>Le livre à été modifié</span>';
                 }
             }
             ?>
