@@ -58,28 +58,29 @@
                 if(isset($_POST['title']) && isset($_POST['author']) && isset($_POST['genre'])){
                     ControleurValidationAddBook($_POST['title'], $_POST['author'], $_POST['genre']);
                 }else{
-                    ControleurAddBook();
+                    ControleurListeLivre();
                 }
             }else{
                 ControleurListeLivre();
             }
         }elseif($_GET['action'] == 'modifyBook'){
             if($_GET['type'] == 'modify'){
-
+                ControleurModifyBook();
             }elseif($_GET['type'] == 'validation'){
+                if(isset($_POST['title']) && isset($_POST['author']) && isset($_POST['genre']) && isset($_POST['titleOrigin'])){
+                    ControleurValidationModifyBook($_POST['title'],$_POST['author'],$_POST['genre'],$_POST['titleOrigin']);
+                }else{
+                    ControleurListeLivre();
+                }
+            }else{
 
             }
         }elseif ($_GET['action'] == 'deleteBook' && isset($_GET['title'])){
             ControleurDeleteBook($_GET['title']);
-        }elseif ($_GET['action'] == 'modifyBook' && isset($_GET['titleOld'])){
-
-        }else{
+        } else{
             ControleurListeLivre();
         }
     }else{
         ControleurListeLivre();
     }
-
-
-
 ?>
