@@ -83,8 +83,15 @@
 
     function ControleurValidationModifyBook($title, $author, $genre, $titleOrigin){
             modifyBook($title,$author,$genre,$titleOrigin);
+            $rows = getBook($title);
+            if($rows['title'] == $title && $rows['author'] == $author){
+                $bookModif = true;
+            }else{
+                $bookModif = false;
+            }
             include 'Vues/modifyBook.php';
     }
+
     function ControleurDeleteBook($title){
         removeBook($title);
     }
