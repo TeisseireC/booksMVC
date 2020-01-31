@@ -116,12 +116,12 @@
     }
 
     function ControleurValidationModifyUser($mailOrigin, $mailNew, $firstname, $lastname,$password,$password2){
-        $rows = getUser($mailNew);
+        $rows = getUser($mailOrigin);
         if($password == $password2) {
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            $rows = getUser($mailNew);
             if ($mailOrigin == $mailNew || !isset($rows['email'])) {
                     modifyUser($mailOrigin, $mailNew, $firstname, $lastname, password_hash($password, PASSWORD_DEFAULT));
-                    $rows = getUser($mailNew);
                     $userModif = true;
                     include 'Vues/modifyUser.php';
             }else {
@@ -130,8 +130,8 @@
                     include 'Vues/modifyUser.php';
                 }
             }
-        }else {
-            $passwordInvalide = false;
+        }else{
+            $passwordInvalide = true;
             include 'Vues/modifyUser.php';
         }
     }
