@@ -19,14 +19,19 @@
         //retour à la page de livres
         //temporaire( "dimitri.gottin@mail.com", password_hash("abcd", PASSWORD_DEFAULT));
         $rows = getUser($email);
-        if($email == $rows['email'] && password_verify($password,$rows['password'])){
-            $_SESSION['user']['email'] = $rows['email'];
-            $_SESSION['user']['firstname'] = $rows['firstname'];
-            $_SESSION['user']['lastname'] = $rows['lastname'];
-            $_SESSION['user']['password'] = $rows['password'];
-            $_SESSION['user']['type'] = $rows['usergroup'];
-            $rows = getAllBooks();
-            include 'Vues/booksList.php';
+        if(!empty($rows['email'])){
+            if($email == $rows['email'] && password_verify($password,$rows['password'])){
+                $_SESSION['user']['email'] = $rows['email'];
+                $_SESSION['user']['firstname'] = $rows['firstname'];
+                $_SESSION['user']['lastname'] = $rows['lastname'];
+                $_SESSION['user']['password'] = $rows['password'];
+                $_SESSION['user']['type'] = $rows['usergroup'];
+                $rows = getAllBooks();
+                include 'Vues/booksList.php';
+            }else{
+                $loginNotValid = true;
+                include 'Vues/login.php';
+            }
         }else{
             $loginNotValid = true;
             include 'Vues/login.php';
@@ -122,7 +127,7 @@
             $rows = getUser($mailNew);
             if ($mailOrigin == $mailNew || !isset($rows['email'])) {
                     modifyUser($mailOrigin, $mailNew, $firstname, $lastname, password_hash($password, PASSWORD_DEFAULT));
-                    $userModif = true;
+                    $userModify = true;
                     include 'Vues/modifyUser.php';
             }else {
                 if ($rows['email'] != $mailOrigin) {

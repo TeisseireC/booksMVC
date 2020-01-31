@@ -38,9 +38,9 @@
             echo        '<input type="password" id="password2"  name="password2" required>';
             echo    '</div>';
         ?>
-            <div>;
-                <button type="submit">Modifier un compte</button>;
-            </div>;
+            <div>
+                <button type="submit">Modifier un compte</button>
+            </div>
     </form>
     <div class="surprise">
         <?php
