@@ -70,6 +70,10 @@
         }
 
     }
+    function ControleurDeleteBook($title){
+        removeBook($title);
+        include 'Vues/booksList.php';
+    }
 
     function ControleurDisconnect(){
         include 'Vues/disconnect.php';

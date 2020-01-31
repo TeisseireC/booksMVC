@@ -21,7 +21,7 @@
             <table>
                 <tr>
                     <th>Titre</th>
-                    <th>Autheur</th>
+                    <th>Auteur</th>
                     <th>Genre</th>
                     <th>Propriétaire</th>
                     <?php
@@ -42,8 +42,8 @@
                                 if(isset($_SESSION['user'])){
                                     if($_SESSION['user']['type'] == 2 || $_SESSION['user']['email'] == $row['email']){
                                         echo '<td class="center">';
-                                        echo '<a href="index.php?action=deleteBook&mail='.$row["email"].'"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
-                                        echo '<a href="index.php?action=modifyBook&mail='.$row["email"].'"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
+                                        echo '<a href="index.php?action=deleteBook&title='.$row["title"].'"><img src="Img/delete.png" width="25px" height="25px" alt="delete"></a>';
+                                        echo '<a href="index.php?action=modifyBook&titleOld='.$row["title"].'"><img src="Img/modifier.png" width="25px" height="25px" alt="modify"></a>';
                                         echo '</td>';
                                     }
                                 }
