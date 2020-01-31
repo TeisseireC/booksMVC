@@ -87,10 +87,14 @@
             }else{
                 ControleurListeLivre();
             }
-        }elseif($_GET['action'] == 'modifyBook' && isset($_GET['title'])){
-            $rows = ControleurVerifyUserBook($_GET['title']);
-            if(isset($rows)){
-                if($_SESSION['user']['email'] == $rows || $_SESSION['user']['type'] == 2){
+        }elseif($_GET['action'] == 'modifyBook' && (isset($_GET['title']) || isset($_POST['titleOrigin']))){
+            if(isset($_GET['title'])){
+                $row = ControleurVerifyUserBook($_GET['title']);
+            }elseif(isset($_POST['titleOrigin'])){
+                $row = ControleurVerifyUserBook($_POST['titleOrigin']);
+            }
+            if(isset($row)){
+                if($_SESSION['user']['email'] == $row || $_SESSION['user']['type'] == 2){
                     if($_GET['type'] == 'modify'){
                         ControleurModifyBook($_GET['title']);
                     }elseif($_GET['type'] == 'validation'){

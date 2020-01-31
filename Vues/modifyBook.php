@@ -15,7 +15,7 @@
     <body>
         <form class="formulaire" action="index.php?action=modifyBook&type=validation" method="post">
             <?php
-                echo '<input type="hidden" name="titleOrigin" value="'.$rows['title'].'">';
+                echo '<input type="hidden" id="titleOrigin" name="titleOrigin" value="'.$rows['title'].'">';
                 echo '<div>';
                 echo    '<label for="title">Titre</label>';
                 echo     '<input type="text" id="title" name="title" value="'.$rows['title'].'" required>';

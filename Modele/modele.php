@@ -120,7 +120,7 @@
 
     function modifyBook($titleNew,$authorNew,$genreNew,$titleOrigin){
         $pdo = connectPDO();
-        $sql = 'Update users set title=:titleNew, author=:authorNew, genre=:genreNew where title = :titleOrigin';
+        $sql = 'Update books set title=:titleNew, author=:authorNew, genre=:genreNew where title = :titleOrigin';
         $sth = $pdo->prepare($sql);
         $sth->bindParam(":titleOrigin", $titleOrigin);
         $sth->bindParam(":titleNew", $titleNew);
